@@ -4,6 +4,7 @@ import sys
 import time
 
 from supervisor import childutils
+import datetime
 
 doc = '''
 Usage: timemon -g taskgroup -i hour -n 5 [ -s 3 ]
@@ -19,6 +20,7 @@ def write_stdout(s):
 
 
 def write_stderr(s):
+    sys.stderr.write(datetime.datetime.now().ctime() + ' ')
     sys.stderr.write(s)
     sys.stderr.flush()
 
